@@ -1,6 +1,5 @@
 services:
   postgres:
-    platform: linux/x86_64
     image: postgres:17
     container_name: postgres
     environment:
@@ -12,22 +11,20 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
   jupyter:
-    platform: linux/x86_64
     build: 
       context: .
       args:
-        DIR_WORK: "/usr/src/app"
+        DIR_WORK: "/usr/src"
         ENV_YML: "environment.yaml"
         VENV: "bioinfo"
-        DIR_CONDA: "/opt/conda"
         REQ_TXT: "requirements.txt"
     image: biobr131/py-metabolomics:latest
     container_name: jupyter
-    command: jupyter lab --ip=0.0.0.0 --allow-root --LabApp.token=''
+    command: mamba run --name bioinfo jupyter lab --ip=0.0.0.0 --allow-root --LabApp.token=''
     ports:
      - "8888:8888"
     volumes:
-     - .:/usr/src/app
+     - ./scripts:/usr/src
     tty: true
     stdin_open: true
 
