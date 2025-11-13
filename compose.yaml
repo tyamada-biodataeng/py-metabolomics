@@ -18,7 +18,7 @@ services:
         ENV_YML: "environment.yaml"
         VENV: "bioinfo"
         REQ_TXT: "requirements.txt"
-    image: biobr131/py-metabolomics:latest
+    image: tyamadabioengdata/py-metabolomics
     container_name: jupyter
     command: mamba run --name bioinfo jupyter lab --ip=0.0.0.0 --allow-root --LabApp.token=''
     ports:
