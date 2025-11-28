@@ -6,24 +6,28 @@ pytest
 pytest-snapshot
 structlog
 pytest-structlog
+sphinx
+sphinx-rtd-theme
 line_profiler
 memory_profiler
 numpy
 scipy
 statsmodels
 openpyxl
+matplotlib
 python-dotenv
 psycopg[binary]
 sqlalchemy
+sqlacodegen
 pandas[performance, plot, computation, excel, xml, hdf5]
 polars-lts-cpu
 ibis-framework[pandas, polars]
-matplotlib
 japanize-matplotlib
 seaborn
 fastcluster
 statannotations
 scikit-learn
+torch --index-url https://download.pytorch.org/whl/cpu
 jupyterlab
 ipywidgets
 ipympl
@@ -34,4 +38,4 @@ biopython
 bioinfokit
 bioservices
 anndata
-scanpy
+scanpy[leiden]
