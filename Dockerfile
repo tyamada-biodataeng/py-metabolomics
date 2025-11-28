@@ -15,13 +15,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG ENV_YML
+ARG VENV
 COPY ${ENV_YML} ${DIR_WORK}/
 RUN mamba update -y -c conda-forge mamba && \
     mamba env create --file ${ENV_YML} && \
     mamba run --name ${VENV} pip install --upgrade pip && \
     mamba clean -i -t -y
 
-ARG VENV
 ARG REQ_TXT
 COPY ${REQ_TXT} ${DIR_WORK}/
 RUN mamba run --name ${VENV} pip install --no-cache-dir -r ${REQ_TXT} && \
