@@ -39,3 +39,4 @@ bioinfokit
 bioservices
 anndata
 scanpy[leiden]
+pytrials
